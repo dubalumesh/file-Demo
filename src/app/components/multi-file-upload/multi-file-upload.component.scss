@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .drop-zone { 
     background-color: #f6f6f6;
     border: dotted 3px #dedddd; 
@@ -25,4 +26,33 @@
 
 .nv-file-over { 
     border: dotted 3px red; 
+=======
+.drop-zone { 
+    background-color: #f6f6f6;
+    border: dotted 3px #dedddd; 
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.file-input-container {
+
+    text-align: right;
+
+    input[type="file"] {
+        display: none;
+    }
+
+    label {
+        border: 1px solid #ccc;
+        padding: 6px 12px;
+        cursor: pointer;
+    }
+}
+
+.nv-file-over { 
+    border: dotted 3px red; 
+>>>>>>> 6c0e104d858e523420071dced85cf9b9f0e94948
 }
