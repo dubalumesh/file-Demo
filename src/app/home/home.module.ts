@@ -8,6 +8,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import {PhotoBase64Component} from '../component/photo-base64/photo-base64.component';
 
 
+
 import { HomePageRoutingModule } from './home-routing.module';
 
 

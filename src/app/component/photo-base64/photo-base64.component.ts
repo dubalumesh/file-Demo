@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
-import { Plugins, FilesystemDirectory, FilesystemEncoding } from '@capacitor/core';
+import { Plugins, FilesystemDirectory, FilesystemEncoding, Capacitor } from '@capacitor/core';
+
+
 
 const { Filesystem } = Plugins;
 import { File } from '@ionic-native/file/ngx';
@@ -70,8 +72,28 @@ export class PhotoBase64Component implements OnInit {
                     path: 'secrets/'+fileName,
                     data:this.cardImageBase64,
                     directory: FilesystemDirectory.Documents,
-                    encoding: FilesystemEncoding.UTF8
-                  })
+                    recursive:true
+                   
+                  }).then(
+                    () => {
+                      Filesystem.getUri({
+                        directory: FilesystemDirectory.Data,
+                        path: fileName
+                      }).then(
+                        result => {
+                          debugger;
+                          let path = Capacitor.convertFileSrc(result.uri);
+                          //this.fileEncryption.encrypt(result.uri,'123');
+                          console.log(path);
+                        },
+                        err => {
+                          console.log(err);
+                        }
+                      );
+                    },err => {
+                      console.log(err);
+                    }
+                  );
                   console.log('Wrote file', result);
                   
                   
